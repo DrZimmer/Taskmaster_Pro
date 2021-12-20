@@ -72,7 +72,20 @@ var status = $(this)
 var index = $(this)
   .closest(".list-group-item")
   .index();
+
+tasks[status][index].text = text;
+saveTasks();
+
+//recreate p element
+var taskP = $("<p>")
+  .addClass("m-1")
+  .text(text);
+
+//replace textarea with p element
+$(this).replaceWith(taskP);
 });
+//LOOK AT WHAT THIS ALL MEANS AFTER
+
 
 // modal was triggered
 $("#task-form-modal").on("show.bs.modal", function() {
